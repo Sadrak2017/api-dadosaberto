@@ -1,0 +1,33 @@
+server:
+  port: 5050
+  servlet:
+    context-path: /openfinance
+
+spring:
+  resources:
+    add-mappings: true
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 12345
+
+  jpa:
+    database: POSTGRESQL
+
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        globally-quoted-identifiers: true
+    show-sql: false
+logging:
+  level:
+    org:
+      hibernate: ERROR
+
+management:
+  security:
+    enabled: false
